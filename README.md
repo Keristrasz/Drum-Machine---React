@@ -1,4 +1,10 @@
-## Running React on Repl.it
+# Drum Machine in React on Replit
+
+Drum Machine with different drum sounds, you can set volume, bank power...
+
+## You can run this app (or check the code) on https://replit.com/@KarelJek/DrumMachine-React#src/App.tsx
+
+### Running React on Repl.it
 
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces.
 
