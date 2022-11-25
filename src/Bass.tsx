@@ -5,7 +5,6 @@ import ReactDOM from "react-dom/client";
 export default function Bass({ bass, setBass }) {
   function handleBass() {
     setBass((prevBass) => !prevBass);
-    console.log(bass);
   }
 
   return (

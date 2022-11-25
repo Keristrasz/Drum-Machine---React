@@ -1,48 +1,40 @@
 import "./App.css";
 import React from "react";
-import ReactDOM from "react-dom/client";
 import { audioList } from "./audioList.js";
 
-export default function Letters({ power, bass, volume, conditionalRender,  setConditionalRender,}) {
-  
-  //Is it better to render all buttons through map (in state) to change their attributes?
+export default function Letters({ power, bass, volume, conditionalRender, setConditionalRender, }) {
+
+  //Probably better to render all buttons through map (in state) to change their attributes
 
   function handleAudio(letter) {
-    // Log ukazuje true, ale je ve skutečnosti false
     if (!power) {
       if (bass) {
         var music = new Audio(audioList[letter].src);
-        setConditionalRender({condition: true, conditionText: audioList[letter].panelText});
-      setTimeout(() => (setConditionalRender({condition: false})), 2000);
+        setConditionalRender({ condition: true, conditionText: audioList[letter].panelText });
+        setTimeout(() => (setConditionalRender({ condition: false })), 2000);
       } else if (!bass) {
         var music = new Audio(audioList[letter].basssrc);
-             setConditionalRender({condition: true, conditionText: audioList[letter].altPanelText});
-      setTimeout(() => (setConditionalRender({condition: false})), 2000);
+        setConditionalRender({ condition: true, conditionText: audioList[letter].altPanelText });
+        setTimeout(() => (setConditionalRender({ condition: false })), 2000);
       }
       console.log(volume);
       music.volume = volume / 100;
       music.play();
 
       //Condition rendering, every call of function always makes condition false after 3 second, even with many calls at once
-      
-      
-   
+
     }
   }
-
   let myRef = React.useRef();
 
-  // console.log(buttonRef.current)
   //Event listener to register clicks on keyboard
 
   let handleKeyDown = (event) => {
     if (audioList.hasOwnProperty([event.key])) {
       handleAudio(audioList[event.key].name);
 
-      //    console.log(myRef.current.children[0].children[1])
-      //    console.log(myRef.current.children[5].innerText)
-
       //Handle changing backgroundcolor on keyboard press for lowercase
+
       let testChildren = [...myRef.current.children];
 
       testChildren.forEach((el) => {
@@ -52,8 +44,6 @@ export default function Letters({ power, bass, volume, conditionalRender,  setCo
             () => (el.children[1].style.backgroundColor = "#6c757d"),
             200
           );
-          //   console.log(el.children[1])
-          //   console.log(el.children[1].style)
         }
       });
     } else if (audioList.hasOwnProperty([event.key.toUpperCase()])) {
@@ -61,6 +51,7 @@ export default function Letters({ power, bass, volume, conditionalRender,  setCo
       let testChildren = [...myRef.current.children];
 
       //Handle changing backgroundcolor on keyboard press for uppercase
+
       testChildren.forEach((el) => {
         if (
           el.innerText === event.key.toUpperCase() ||
@@ -71,24 +62,13 @@ export default function Letters({ power, bass, volume, conditionalRender,  setCo
             () => (el.children[1].style.backgroundColor = "#6c757d"),
             200
           );
-          //   console.log(el.children[1])
-          //   console.log(el.children[1].style)
         }
       });
     }
   };
 
-  //  console.log(myRef)
-  // console.log(myRef.current)
-
-  // let handleFuc = () => {
-  // if (myRef.current.children[0].innerText === "Q") {
-  //   return console.log(myRef.current.children)
-  // }
-  //}
-  // setTimeout(handleFuc, 200)
-
   React.useEffect(() => {
+
     window.addEventListener("keydown", handleKeyDown);
 
     return () => {

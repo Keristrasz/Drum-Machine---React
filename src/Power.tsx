@@ -1,6 +1,4 @@
 import "./App.css";
-import React from "react";
-import ReactDOM from "react-dom/client";
 
 export default function Power({ setPower, power }) {
   function handlePower() {
