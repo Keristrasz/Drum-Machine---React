@@ -1,6 +1,6 @@
 # Drum Machine in React on Replit
 
-Drum Machine with different drum sounds, you can set volume, bank power...
+Drum Machine with different drum sounds, you can set volume, bank power... You can use keyboard as well!
 
 ## You can run this app (or check the code) on https://replit.com/@KarelJek/DrumMachine-React#src/App.tsx
 
