@@ -3,7 +3,6 @@ import "./App.css";
 export default function Power({ setPower, power }) {
   function handlePower() {
     setPower((prevPower) => !prevPower);
-    console.log(power);
   }
 
   return (
