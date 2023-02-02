@@ -1,6 +1,7 @@
 import "./App.css";
+import {Props} from "./App"
 
-export default function Power({ setPower, power }) {
+const Power:React.FC<Props> = ({ setPower, power }) => {
   function handlePower() {
     setPower((prevPower) => !prevPower);
   }
@@ -22,3 +23,5 @@ export default function Power({ setPower, power }) {
     </div>
   );
 }
+
+export default Power

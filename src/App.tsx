@@ -1,21 +1,44 @@
 import "./App.css";
 import ControlPanel from "./ControlPanel";
 import Letters from "./Letters";
-import React from "react";
+import React, { useState } from "react";
 
-export default function App() {
-  const [power, setPower] = React.useState(false);
-  const [bass, setBass] = React.useState(true);
-  const [volume, setVolume] = React.useState(50);
-  const [conditionalRender, setConditionalRender] = React.useState({
+export interface Props {
+  power: boolean;
+  setPower: (power: boolean) => void;
+  bass: boolean;
+  setBass: (bass: boolean) => void;
+  volume: number;
+  setVolume: (volume: number) => void;
+  conditionalRender: {
+    condition: boolean;
+    conditionText: string;
+  };
+  setConditionalRender: (conditionalRender: {
+    condition: boolean;
+    conditionText: string;
+  }) => void;
+}
+
+const App: React.FC<Props> = (props) => {
+  const [power, setPower] = useState(false);
+  const [bass, setBass] = useState(true);
+  const [volume, setVolume] = useState(50);
+  const [conditionalRender, setConditionalRender] = useState({
     condition: false,
-    conditionText: "PlaceHolder Text"
+    conditionText: "",
   });
 
   return (
     <main>
       <div id="drum-machine">
-        <Letters power={power} bass={bass} volume={volume} conditionalRender={conditionalRender} setConditionalRender={setConditionalRender} />
+        <Letters
+          power={power}
+          bass={bass}
+          volume={volume}
+          conditionalRender={conditionalRender}
+          setConditionalRender={setConditionalRender}
+        />
         <ControlPanel
           setPower={setPower}
           power={power}
@@ -28,4 +51,6 @@ export default function App() {
       </div>
     </main>
   );
-}
+};
+
+export default App;

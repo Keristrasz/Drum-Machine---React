@@ -2,8 +2,9 @@ import "./App.css";
 import Bass from "./Bass";
 import Power from "./Power";
 import Volume from "./Volume";
+import {Props} from "./App"
 
-export default function ControlPanel({
+const ControlPanel: React.FC<Props> = ({
   setPower,
   power,
   bass,
@@ -11,8 +12,7 @@ export default function ControlPanel({
   volume,
   setVolume,
   conditionalRender,
-  conditionalRenderText,
-}) {
+}) => {
   return (
     <div id="panel">
       <Power power={power} setPower={setPower} />
@@ -20,4 +20,6 @@ export default function ControlPanel({
       <Bass bass={bass} setBass={setBass} />
     </div>
   );
-}
+};
+
+export default ControlPanel;

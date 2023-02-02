@@ -1,22 +1,21 @@
-import "./App.css";
-import { audioList } from "./audioList.js";
+import React from 'react';
+import { audioList } from './audioList';
+import {Props} from "./App"
 
-export default function Letter({ letter, handleAudio }) {
-
+const Letter: React.FC<Props> = ({ letter, handleAudio }) => {
   return (
-      <div className="col-4">
-        {" "}
-        <audio id={ letter } src={audioList[letter].src}>
-          {" "}
-        </audio>
-        <button
-          type="button"
-          className="border border-info btn btn-secondary btn-lg drum-pad"
-          onClick={() => handleAudio(audioList[letter].name)}
-          value={ letter }
-        >
-          { letter }
-        </button>
-      </div>
+    <div className="col-4">
+      <audio id={letter} src={audioList[letter].src} />
+      <button
+        type="button"
+        className="border border-info btn btn-secondary btn-lg drum-pad"
+        onClick={() => handleAudio(audioList[letter].name)}
+        value={letter}
+      >
+        {letter}
+      </button>
+    </div>
   );
-}
+};
+
+export default Letter;
