@@ -1,5 +1,5 @@
 /**
- * This script adds a "GitHub Code" badge in full-browser view
+ * This script adds a "GitHub Code" badge
  */
 
 function main() {
