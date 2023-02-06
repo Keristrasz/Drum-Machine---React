@@ -59,3 +59,32 @@ main {
   padding-top: 5px;
   background-color: #bdf2ff;
 }
+
+/* BADGE */
+
+#badge {
+  position: fixed;
+  cursor: pointer;
+  bottom: 16px;
+  right: 16px;
+  z-index: 1000;
+  background-color: #00a11b;
+  color: #f5f9fc;
+  padding: 0.3em 0.75em;
+  border-radius: 0.3em;
+  font-size: 1.25em;
+  text-decoration: none;
+  box-shadow: 3px 3px 3px black;
+}
+
+#badge div {
+  opacity: 0.7;
+  transition-property: opacity, transform;
+  transition: opacity 120ms, transform 120ms;
+  transition-timing-function: ease-out;
+}
+
+#badge:hover div {
+  transform: scale(1.07);
+  opacity: 1;
+}
