@@ -8,10 +8,16 @@
     "build": "tsc && vite build",
     "preview": "vite preview"
   },
-  "keywords": [],
-  "author": "",
+  "keywords": [
+    "drummachine",
+    "sound",
+    "music"
+  ],
+  "author": "KJ",
   "license": "ISC",
-  "dependencies": {
+    "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@types/react": "^18.0.15",
