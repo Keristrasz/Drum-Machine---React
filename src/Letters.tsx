@@ -2,9 +2,9 @@ import "./App.css";
 import React from "react";
 import { audioList } from "./audioList";
 import Letter from "./Letter";
-import {Props} from "./App"
+import { Props } from "./App"
 
-const Letters: React.FC<Props> = ({ power, bass, volume, conditionalRender, setConditionalRender }) => {
+const Letters: React.FC<Props> = ({ power, bass, volume, setConditionalRender }) => {
 
   const handleAudio = (letter: string) => {
     if (!power) {
@@ -21,6 +21,8 @@ const Letters: React.FC<Props> = ({ power, bass, volume, conditionalRender, setC
       music.play();
     }
   };
+
+  //directly manipulating DOM through useRef, just for experimental purpose
 
   const myRef = React.useRef<HTMLDivElement>(null);
 
@@ -54,7 +56,9 @@ const Letters: React.FC<Props> = ({ power, bass, volume, conditionalRender, setC
     };
   }, [volume, power, bass]);
 
-  const allButtonLetters = Object.keys(audioList).filter(el => el !== "Y");
+  //mapping all letters, for english keyboard, there is Z for keyboard press
+
+  const allButtonLetters = Object.keys(audioList).filter(el => el !== "Z");
   const renderAllButtons = allButtonLetters.map(el => (
     <Letter key={el} letter={el} handleAudio={handleAudio} />
   ));

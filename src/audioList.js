@@ -45,14 +45,14 @@ export let audioList = {
   Z: {
     src: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
     basssrc: "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3",
-    name: "Z",
+    name: "Y",
     panelText: "Kick n' Hat",
     altPanelText: "Punchy Kick"
   },
   Y: {
     src: "https://s3.amazonaws.com/freecodecamp/drums/Kick_n_Hat.mp3",
     basssrc: "https://s3.amazonaws.com/freecodecamp/drums/punchy_kick_1.mp3",
-    name: "Z",
+    name: "Y",
     panelText: "Kick n' Hat",
     altPanelText: "Punchy Kick"
   },
