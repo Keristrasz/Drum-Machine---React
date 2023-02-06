@@ -53,7 +53,7 @@ function main() {
     }
     </style>
     
-    <a id="badge" href="">
+    <a id="badge"  target="_blank" href="https://github.com/Keristrasz/Drum-Machine---React">
         <div>Code on GitHub</div>
     </a>
     `;
