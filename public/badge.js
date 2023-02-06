@@ -48,7 +48,7 @@ function main() {
     }
   
     #badge:hover div {
-      transform: scale(1.05);
+      transform: scale(1.07);
       opacity: 1;
     }
     </style>
