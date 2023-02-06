@@ -1,6 +1,6 @@
 import "./App.css";
 import React from "react";
-import {Props} from "./App"
+import { Props } from "./App";
 
 const Volume: React.FC<Props> = ({ volume, setVolume, conditionalRender }) => {
   const handleVolume = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -9,7 +9,11 @@ const Volume: React.FC<Props> = ({ volume, setVolume, conditionalRender }) => {
 
   return (
     <div id="volume">
-      {conditionalRender.condition && <div id="popup"><h4>{conditionalRender.conditionText}</h4></div>}
+      {conditionalRender.condition && (
+        <div id="popup">
+          <h4>{conditionalRender.conditionText}</h4>
+        </div>
+      )}
       <div className="d-flex justify-content-center mt-3">VOLUME</div>
       <div className="d-flex justify-content-center text-primary">{volume}</div>
       <div className="d-flex justify-content-center">

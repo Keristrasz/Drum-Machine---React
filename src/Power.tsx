@@ -1,9 +1,9 @@
 import "./App.css";
-import {Props} from "./App"
+import { Props } from "./App";
 
-const Power:React.FC<Props> = ({ setPower, power }) => {
+const Power: React.FC<Props> = ({ setPower, power }) => {
   function handlePower() {
-    setPower((prevPower) => !prevPower);
+    setPower(!power);
   }
 
   return (
@@ -22,6 +22,6 @@ const Power:React.FC<Props> = ({ setPower, power }) => {
       </div>
     </div>
   );
-}
+};
 
-export default Power
+export default Power;

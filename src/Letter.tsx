@@ -1,8 +1,11 @@
-import React from 'react';
-import { audioList } from './audioList';
-import {Props} from "./App"
+import { audioList } from "./audioList";
 
-const Letter: React.FC<Props> = ({ letter, handleAudio }) => {
+interface LetterProps {
+  letter: string;
+  handleAudio: (letter: string) => void;
+}
+
+const Letter: React.FC<LetterProps> = ({ letter, handleAudio }) => {
   return (
     <div className="col-4">
       <audio id={letter} src={audioList[letter].src} />

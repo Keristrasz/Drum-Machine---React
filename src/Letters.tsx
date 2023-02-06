@@ -2,21 +2,32 @@ import "./App.css";
 import React from "react";
 import { audioList } from "./audioList";
 import Letter from "./Letter";
-import { Props } from "./App"
+import { Props } from "./App";
 
 const Letters: React.FC<Props> = ({ power, bass, volume, setConditionalRender }) => {
-
   const handleAudio = (letter: string) => {
     if (!power) {
       let music: HTMLAudioElement;
-      if (bass) {
-        music = new Audio(audioList[letter].src);
-        setConditionalRender({ condition: true, conditionText: audioList[letter].panelText });
-      } else if (!bass) {
+      music = new Audio(audioList[letter].src);
+      setConditionalRender({
+        condition: true,
+        conditionText: audioList[letter].panelText,
+      });
+      if (!bass) {
         music = new Audio(audioList[letter].basssrc);
-        setConditionalRender({ condition: true, conditionText: audioList[letter].altPanelText });
+        setConditionalRender({
+          condition: true,
+          conditionText: audioList[letter].altPanelText,
+        });
       }
-      setTimeout(() => (setConditionalRender({ condition: false })), 2000);
+      setTimeout(
+        () =>
+          setConditionalRender({
+            condition: false,
+            conditionText: "",
+          }),
+        2000
+      );
       music.volume = volume / 100;
       music.play();
     }
@@ -30,17 +41,23 @@ const Letters: React.FC<Props> = ({ power, bass, volume, setConditionalRender })
     if (myRef.current) {
       const domLetter = [...myRef.current.children];
 
-      if (audioList.hasOwnProperty(event.key) || audioList.hasOwnProperty(event.key.toUpperCase())) {
+      if (
+        audioList.hasOwnProperty(event.key) ||
+        audioList.hasOwnProperty(event.key.toUpperCase())
+      ) {
         handleAudio(audioList[event.key.toUpperCase()].name);
 
-        domLetter.forEach(el => {
-          if (el.innerText === event.key ||
-            el.id === event.key || el.innerText === event.key.toUpperCase() ||
-            el.id === event.key.toUpperCase()
+        domLetter.forEach((el) => {
+          if (
+            (el as HTMLElement).innerText === event.key ||
+            (el as HTMLElement).id === event.key ||
+            (el as HTMLElement).innerText === event.key.toUpperCase() ||
+            (el as HTMLElement).id === event.key.toUpperCase()
           ) {
             (el.children[1] as HTMLButtonElement).style.backgroundColor = "red";
             setTimeout(
-              () => ((el.children[1] as HTMLButtonElement).style.backgroundColor = "#6c757d"),
+              () =>
+                ((el.children[1] as HTMLButtonElement).style.backgroundColor = "#6c757d"),
               200
             );
           }
@@ -58,8 +75,8 @@ const Letters: React.FC<Props> = ({ power, bass, volume, setConditionalRender })
 
   //mapping all letters, for english keyboard, there is Z for keyboard press
 
-  const allButtonLetters = Object.keys(audioList).filter(el => el !== "Z");
-  const renderAllButtons = allButtonLetters.map(el => (
+  const allButtonLetters = Object.keys(audioList).filter((el) => el !== "Z");
+  const renderAllButtons = allButtonLetters.map((el) => (
     <Letter key={el} letter={el} handleAudio={handleAudio} />
   ));
 

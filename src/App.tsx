@@ -33,9 +33,12 @@ const App: React.FC<Props> = (props) => {
     <main>
       <div id="drum-machine">
         <Letters
+          setPower={setPower}
           power={power}
+          setBass={setBass}
           bass={bass}
           volume={volume}
+          setVolume={setVolume}
           conditionalRender={conditionalRender}
           setConditionalRender={setConditionalRender}
         />
@@ -47,6 +50,7 @@ const App: React.FC<Props> = (props) => {
           volume={volume}
           setVolume={setVolume}
           conditionalRender={conditionalRender}
+          setConditionalRender={setConditionalRender}
         />
       </div>
     </main>

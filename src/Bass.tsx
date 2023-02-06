@@ -1,13 +1,12 @@
 import "./App.css";
 import React from "react";
-import { Props } from "./App"
+import { Props } from "./App";
 
 //the component is converted from a functional component to a React.FC type. An interface named Props is imported to describe the shape of the props object for the component. The Props interface has two properties: bass and setBass, both of the required type. The type of the Props prop is React.Dispatch<React.SetStateAction<boolean>>, which is a type provided by the React library that represents a state update function.
 
-
-const Bass: React.FC<Props> = ({ setBass }) => {
+const Bass: React.FC<Props> = ({ setBass, bass }) => {
   const handleBass = () => {
-    setBass((prevBass) => !prevBass);
+    setBass(!bass);
   };
 
   return (
@@ -23,6 +22,6 @@ const Bass: React.FC<Props> = ({ setBass }) => {
       </div>
     </div>
   );
-}
+};
 
 export default Bass;
